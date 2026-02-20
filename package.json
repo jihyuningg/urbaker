@@ -1,0 +1,26 @@
+{
+  "name": "urbaker",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "deploy": "gh-pages -d dist"
+  },
+  "dependencies": {
+    "firebase": "^12.9.0",
+    "lucide-react": "^0.271.0",
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.7.0",
+    "autoprefixer": "^10.4.20",
+    "gh-pages": "^5.0.0",
+    "postcss": "^8.4.35",
+    "tailwindcss": "^3.4.19",
+    "vite": "^4.5.14"
+  }
+}
