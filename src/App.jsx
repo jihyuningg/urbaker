@@ -468,11 +468,15 @@ export default function App() {
             >
               카카오뱅크 3333-10-2713229
             </div>
-            <p className="text-sm text-stone-700">입금자명 박지현</p>
+            <p className="text-sm text-stone-700">예금주 박지현</p>
             {copiedAccount && <p className="text-[10px] text-green-500">계좌번호 복사됨</p>}
             <p>&nbsp;</p>
             <p className="text-xs text-stone-500 uppercase tracking-[0.25em]">기타 문의</p>
-            <p className="text-sm text-stone-700">유어베이커 010-5014-9926</p>
+            <p className="text-sm text-stone-700 flex items-center justify-center font-black tracking-tight text-[#6F3E1E]">
+              <a href="https://www.instagram.com/urbaker_official/" target="_blank" rel="noreferrer" className="hover:underline">
+                instagram
+              </a>
+            </p>
           </div>
           <button
             onClick={() => {
