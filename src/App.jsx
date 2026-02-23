@@ -303,11 +303,6 @@ export default function App() {
     );
   }
 
-  const totalPrice = Object.entries(orderForm.items).reduce((sum, [id, qty]) => {
-    const product = settings.products.find(x => x.id === id);
-    return sum + (product ? product.price * qty : 0);
-  }, 0);
-
   const handleCopyAccount = async () => {
     try {
       await navigator.clipboard.writeText('3333102713229');
@@ -457,44 +452,27 @@ export default function App() {
         </div>
       ) : (
         <div className="max-w-md mx-auto px-6 py-10">
-        <div className="bg-white rounded-[4rem] p-16 text-center shadow-2xl border border-stone-100 space-y-5">
+        <div className="bg-white rounded-[4rem] p-16 text-center shadow-2xl border border-stone-100 space-y-4">
           <div className="w-20 h-20 bg-[#6F3E1E]/5 rounded-full flex items-center justify-center mx-auto mb-2">
             <CheckCircle2 size={40} className="text-[#6F3E1E]" />
           </div>
-          <h2 className="text-3xl font-black text-stone-800 tracking-tight">예약 신청 완료!</h2>
-          <p className="text-sm text-stone-400 font-bold leading-relaxed">
-            주문 내용을 확인하신 후 아래 계좌로 입금해 주세요.
-          </p>
-          <div className="bg-[#FDFBF9] rounded-3xl p-6 text-left shadow-xl border border-stone-100 space-y-4">
-            <p className="text-[10px] uppercase tracking-[0.35em] text-stone-400">payment info</p>
-            <p className="text-[9px] uppercase tracking-[0.35em] text-stone-400">bank account</p>
+          <h2 className="text-2xl font-black text-stone-800 tracking-tight">Reservation Success!</h2>
+          <div className="text-sm text-stone-400 font-bold leading-relaxed space-y-1">
+            <p>{orderForm.name}님, 예약이 정상 접수되었습니다.</p>
+            <p>아래 계좌로 주문금액을 입금해주시면 주문이 완료됩니다.</p>
+            <p>&nbsp;</p>
+            <p className="text-xs text-stone-500 uppercase tracking-[0.25em]">입금정보</p>
             <div
-              className="text-lg font-black text-[#1f1f1f] cursor-pointer hover:text-[#6F3E1E] transition-colors"
+              className="text-sm font-black text-[#1b2028] cursor-pointer hover:text-[#6F3E1E] transition-all"
               onClick={handleCopyAccount}
             >
               카카오뱅크 3333-10-2713229
             </div>
-            <div className="flex justify-between text-left text-[10px] text-stone-400 uppercase tracking-[0.3em]">
-              <div>
-                <p>예금주</p>
-                <p className="text-sm text-stone-700 normal-case tracking-normal">박지현</p>
-              </div>
-              <div>
-                <p>입금 금액</p>
-                <p className="text-sm text-[#6F3E1E] font-black normal-case tracking-normal">
-                  {totalPrice.toLocaleString()}원
-                </p>
-              </div>
-            </div>
+            <p className="text-sm text-stone-700">입금자명 박지현</p>
             {copiedAccount && <p className="text-[10px] text-green-500">계좌번호 복사됨</p>}
-          </div>
-          <div className="space-y-2">
-            <p className="text-xs text-stone-500 uppercase tracking-[0.3em]">기타 문의</p>
-            <p className="text-sm text-stone-700 flex items-center justify-center font-black tracking-tight text-[#6F3E1E]">
-              <a href="https://www.instagram.com/urbaker_official/" target="_blank" rel="noreferrer" className="hover:underline">
-                instagram
-              </a>
-            </p>
+            <p>&nbsp;</p>
+            <p className="text-xs text-stone-500 uppercase tracking-[0.25em]">기타 문의</p>
+            <p className="text-sm text-stone-700">유어베이커 010-5014-9926</p>
           </div>
           <button
             onClick={() => {
